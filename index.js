@@ -17,7 +17,7 @@ mongoose.connect(DB_URL, {
 
 
 app.use(cors({
-  origin: ["https://lenvo1.netlify.app"],
+  origin: ["https://lenvo1.netlify.app/"],
   methods: ["GET", "POST"],
   credentials:true
 }));
