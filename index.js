@@ -5,7 +5,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 const studentRoutes = require('./routes/students');
 const teacherRoutes = require('./routes/teachers');
-
+const bodyParser = require("body-parser")
 const app = express();
 
 const DB_URL = process.env.MONGO_URL;
@@ -16,11 +16,7 @@ mongoose.connect(DB_URL, {
   .catch(() => console.log("Database not connected"));
 
 
-app.use(cors({
-  origin: ["https://birthday-mail-ten.vercel.app"],
-  methods: ["GET", "POST"],
-  credentials:true
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.json());
