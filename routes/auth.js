@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body)
 
   // Check for student first
   let user = await Student.findOne({ email });
