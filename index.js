@@ -16,7 +16,11 @@ mongoose.connect(DB_URL, {
   .catch(() => console.log("Database not connected"));
 
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://levon1.netlify.app"],
+  methods: ["GET", "POST"],
+  credentials:true
+}));
 app.use(bodyParser.json());
 
 app.use(express.json());

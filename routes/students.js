@@ -10,10 +10,16 @@ router.post('/', auth('teacher'), async (req, res) => {
   await student.save();
   res.status(201).send(student);
 });
+router.post('/register', async (req, res) => {
+  const student = new Student(req.body);
+  await student.save();
+  res.status(201).send(student);
+});
 
 // Get all students
-router.get('/', auth(), async (req, res) => {
+router.get('/',  async (req, res) => {
   const students = await Student.find();
+  console.log(students)
   res.send(students);
 });
 
